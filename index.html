@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEMPLATES — Loja</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">TEMPLATES</a>
+  <ul class="nav-links">
+    <li><a href="#">Novidades</a></li>
+    <li><a href="#">Roupas</a></li>
+    <li><a href="#">Acessórios</a></li>
+    <li><a href="#">Sale</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-btn" onclick="toggleCart()">
+      🛍 Carrinho
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Moda que <em>define</em> sua essência</h1>
+    <p>Peças cuidadosamente selecionadas para quem valoriza estilo atemporal e qualidade que dura. Cada item conta uma história.</p>
+    <button class="btn-primary" onclick="document.querySelector('.products-section').scrollIntoView({behavior:'smooth'})">
+      Explorar Coleção
+    </button>
+  </div>
+  <div class="hero-img">
+    <div class="hero-img-inner">✦</div>
+    <div class="hero-badge">Nova Coleção 2025</div>
+  </div>
+</section>
+
+<!-- FILTERS -->
+<div class="filters-bar">
+  <span class="filter-label">Filtrar:</span>
+  <button class="filter-chip active" onclick="filterProducts('todos', this)">Todos</button>
+  <button class="filter-chip" onclick="filterProducts('roupas', this)">Roupas</button>
+  <button class="filter-chip" onclick="filterProducts('acessorios', this)">Acessórios</button>
+  <button class="filter-chip" onclick="filterProducts('calcados', this)">Calçados</button>
+  <button class="filter-chip" onclick="filterProducts('sale', this)">Sale</button>
+</div>
+
+<!-- PRODUCTS -->
+<div class="products-section">
+  <div class="section-header">
+    <h2>Coleção</h2>
+    <span class="product-count" id="productCount">12 produtos</span>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a class="logo">TEMPLATES</a>
+  <p>© 2025 TEMPLATES. Todos os direitos reservados. Entrega em todo o Brasil.</p>
+</footer>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+<!-- CART SIDEBAR -->
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>Seu Carrinho</h3>
+    <button class="close-btn" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <strong id="cartTotal">R$ 0,00</strong>
+    </div>
+    <button class="checkout-btn" onclick="checkout()">Finalizar Compra</button>
+    <p class="cart-note">🔒 Pagamento seguro · Frete grátis acima de R$ 299</p>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
